@@ -1,17 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
+import Order from "./Order";
 
-const Restaurant = () => {
-  const pizzas = 0;
-  return (
-    <div>
-      <h3>Restaurant Orders</h3>
-      <ul>
-        <li>
-          Pizzas: {pizzas} <button className="btn btn-primary">Add</button>
-        </li>
-      </ul>
-    </div>
-  );
-};
+class Restaurant extends Component {
+  state = {
+    pizzas: 0,
+    orders: 0
+  };
+
+  addOrder = () => {
+    console.log("add Order");
+    this.setState(prevState => {
+      return {
+        orders: prevState.orders + 1
+      };
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <h3>Restaurant Orders</h3>
+        <ul>
+          <Order orderType={"Pizzas"} />
+          <Order orderType={"Salads"} />
+        </ul>
+      </div>
+    );
+  }
+}
 
 export default Restaurant;

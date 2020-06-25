@@ -1,19 +1,16 @@
 import React from "react";
 
-const Footer = () => {
-  const footerInfo = [
-    "123 Fake Street, London, E1 4UD",
-    "hello@fakehotel.com",
-    "0123 456789"
-  ];
+const Footer = props => {
+  const footerInfo = props.footerInfo;
   return (
-    <footer>
+    <div>
+      <h3>Restaurant Orders</h3>
       <ul>
-        {footerInfo.map(info => {
-          return <li>{info}</li>;
+        {footerInfo.map((line, index) => {
+          return <li key={index}>{line}</li>;
         })}
       </ul>
-    </footer>
+    </div>
   );
 };
 
